@@ -1,4 +1,3 @@
-//hallo sven wie gehts?
 package memory_window;
 
 import java.awt.BorderLayout;
