@@ -13,9 +13,7 @@ import java.awt.Font;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-//import static project.Project.Zeit;
-//import static project.Project.myStoppuhr;
-//import static project.Project.zeit1;
+import static memory_window.*;
 
 public class GUI_memory extends JFrame {
 
