@@ -17,12 +17,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class GUI_memory extends JFrame {
-
-	private static  JPanel contentPane;
-	public JTextField txtStoppuhr;
-	final private JTextField textField;
-        static JTable highscore;
-        final private String[][] dataHigh;
+    
+    static  JPanel contentPane;
+    public JTextField txtStoppuhr;
+    final private JTextField textField;
+    static JTable highscore;
+    final private String[][] dataHigh;
         public static JButton bt1, bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9;
         public static  JPanel memory;
         final private JPanel right;
@@ -32,27 +32,12 @@ public class GUI_memory extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-                        @Override
-			public void run() {
-				try {
-					GUI_memory frame = new GUI_memory();
-					frame.setVisible(true);
-                                        frame.add(contentPane);
-                                        frame.pack();
-                                        frame.setResizable(false);
-                                        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-				} catch (Exception e) {
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the frame.
 	 */
-	public GUI_memory() {
+	public GUI_memory(int size) {
                 Project.zeit1=System.currentTimeMillis(); 
                 Project.myStoppuhr(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -105,7 +90,7 @@ public class GUI_memory extends JFrame {
                 midBut = new JPanel();
                 String[] columnNames={"User","Time"};
                 dataHigh = new String[4][2];
-                dataHigh[0][0]= "havefun";
+                dataHigh[0][0]= "da";
                 highscore = new JTable(dataHigh,columnNames);
                 highscore.setVisible(true);
                 midBut.add(highscore,BorderLayout.CENTER);
