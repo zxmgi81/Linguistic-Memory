@@ -1,4 +1,5 @@
-package project;
+//hallo sven wie gehts?
+package memory_window;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -19,9 +20,9 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import static project.Project.Zeit;
-import static project.Project.myStoppuhr;
-import static project.Project.zeit1;
+//import static project.Project.Zeit;
+//import static project.Project.myStoppuhr;
+//import static project.Project.zeit1;
 
 public class GUI_memory extends JFrame {
 
@@ -60,8 +61,8 @@ public class GUI_memory extends JFrame {
 	 * Create the frame.
 	 */
 	public GUI_memory() {
-                zeit1=System.currentTimeMillis(); 
-                myStoppuhr(true);
+//                zeit1=System.currentTimeMillis(); 
+//                myStoppuhr(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -118,8 +119,8 @@ public class GUI_memory extends JFrame {
                 midBut.add(highscore,BorderLayout.CENTER);
 		
 		
-		Zeit.setBounds(353, 12, 51, 19);
-		midBut.add(Zeit,BorderLayout.SOUTH);
+//		Zeit.setBounds(353, 12, 51, 19);
+//		midBut.add(Zeit,BorderLayout.SOUTH);
 		
 		
 		JLabel lblLinguisticMemory = new JLabel("memory");
