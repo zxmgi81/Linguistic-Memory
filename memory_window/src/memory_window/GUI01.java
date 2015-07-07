@@ -12,23 +12,24 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class GUI01 {
 
-	private JFrame frame;
-	private JTextField txtLinguisticGames;
-	private JTextField textField;
-	private JFrame selection;
-        public String username;
+    private JFrame frame;
+    private JTextField txtLinguisticGames;
+    private JTextField textField;
+    private JFrame selection;
+    public static String username;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GUI01 window = new GUI01();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
+public static void main(String[] args) {
+	EventQueue.invokeLater(new Runnable() {
+        	public void run() {
+                	try {
+			GUI01 window = new GUI01();
+			window.frame.setVisible(true);                       
+				}
+                        catch (Exception e) {
+				e.printStackTrace();
 				}
 			}
 		});
@@ -49,7 +50,8 @@ public class GUI01 {
 		frame.getContentPane().setBackground(new Color(144, 238, 144));
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+		frame.setResizable(false);
+                
 		JButton btnStart = new JButton("Start");
 		btnStart.setBounds(453, 361, 79, 25);
 		btnStart.setMaximumSize(new Dimension(95, 30));
@@ -66,10 +68,11 @@ public class GUI01 {
 		txtLinguisticGames.setFont(new Font("LM Roman Caps 10", Font.BOLD, 20));
 		txtLinguisticGames.setText("Linguistic Memory Game\n");
 		txtLinguisticGames.setColumns(10);
+                txtLinguisticGames.setEditable(false);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setBounds(12, 94, 159, 292);
-		lblNewLabel.setIcon(new ImageIcon("/home/sabine/Dropbox/Java-group-project/IMG_6860d.JPG"));
+		lblNewLabel.setIcon(new ImageIcon("IMG_6860d.JPG"));
 		
 		JLabel lblNewLabel_1 = new JLabel("Username");
 		lblNewLabel_1.setBounds(453, 94, 72, 15);
@@ -83,7 +86,8 @@ public class GUI01 {
 		txtrIntro.setTabSize(20);
 		txtrIntro.setRows(1);
 		txtrIntro.setText("Welcome to our Linguistic \nMemory Game.\n.......................");
-		
+		txtrIntro.setEditable(false);
+                
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(453, 167, 150, 24);
 		comboBox.setMaximumRowCount(10);
@@ -141,32 +145,33 @@ public class GUI01 {
 			}
 			
 			else{
-					selection = new JFrame();
-				    selection.getContentPane().setBackground(new Color(144, 238, 144));
-				    selection.setBounds(100, 100, 400, 100);
-				    selection.setVisible(true);
+                            selection = new JFrame();
+                            selection.setLocationRelativeTo(null);
+                            selection.getContentPane().setBackground(new Color(144, 238, 144));
+			    selection.setBounds(100, 100, 400, 100);
+			    selection.setVisible(true);
 				    
-				    JPanel panel = new JPanel();
-					selection.add(panel);
-					
-					JTextArea txtSelection = new JTextArea();
-					txtSelection.setBounds(183, 94, 217, 292);
-					txtSelection.setTabSize(20);
-					txtSelection.setRows(1);
-					txtSelection.setText("Please select how many memory pairs you want to have.");
-					panel.add(txtSelection);
+			    JPanel panel = new JPanel();
+                            selection.add(panel);
+				
+                            JTextArea txtSelection = new JTextArea();
+                            txtSelection.setBounds(183, 94, 217, 292);
+                            txtSelection.setTabSize(20);
+                            txtSelection.setRows(1);
+                            txtSelection.setText("Please select how many memory pairs you want to have.");
+                            panel.add(txtSelection);
 				    
-				    JButton btnFourPairs = new JButton("4 pairs");
-				    btnFourPairs.setBounds(453, 146, 150, 15);
-				    btnFourPairs.setMaximumSize(new Dimension(30, 30));
-				    panel.add(btnFourPairs);
-				    btnFourPairs.addActionListener(new btnFourPairHandler());
+                    	    JButton btnFourPairs = new JButton("4 pairs");
+                            btnFourPairs.setBounds(453, 146, 150, 15);
+			    btnFourPairs.setMaximumSize(new Dimension(30, 30));
+			    panel.add(btnFourPairs);
+			    btnFourPairs.addActionListener(new btnFourPairHandler());
 				    
-				    JButton btnEightPairs = new JButton("8 pairs");
-					btnEightPairs.setBounds(453, 146, 150, 15);
-					btnEightPairs.setMaximumSize(new Dimension(30, 30));
-					panel.add(btnEightPairs);
-					btnEightPairs.addActionListener(new btnEightPairHandler());
+			    JButton btnEightPairs = new JButton("8 pairs");
+                            btnEightPairs.setBounds(453, 146, 150, 15);
+                            btnEightPairs.setMaximumSize(new Dimension(30, 30));
+				panel.add(btnEightPairs);
+				btnEightPairs.addActionListener(new btnEightPairHandler());
 				    
 
 				}
@@ -208,6 +213,7 @@ public class GUI01 {
 					frame.setVisible(true);
                                         frame.add(GUI_memory.contentPane);
                                         frame.pack();
+                                        frame.setLocationRelativeTo(null);
                                         frame.setResizable(false);
                                         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 				} catch (Exception e) {
