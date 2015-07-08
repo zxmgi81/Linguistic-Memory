@@ -1,4 +1,4 @@
-package memory_window;
+package data;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
