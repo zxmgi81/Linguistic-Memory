@@ -23,7 +23,7 @@ public class Project {
     
 
 public static HashMap<String,String> posTags = new HashMap<>();
-public static Entries test;
+public static data.Entries test;
 
 static public JLabel Zeit = new JLabel("00:00"); //Jlabel for the stoppwatch
 static JLabel solvedPairs =new JLabel("0"); // JLabel for the solvedPairs counter
