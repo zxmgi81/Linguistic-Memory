@@ -9,37 +9,51 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
-import java.awt.*;
+import java.awt.Font;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import static memory_window.*;
 
 public class GUI_memory extends JFrame {
-    
-    static  JPanel contentPane;
-    public JTextField txtStoppuhr;
-    final private JTextField textField;
-    static JTable highscore;
-    final private String[][] dataHigh;
+
+	private static  JPanel contentPane;
+	public JTextField txtStoppuhr;
+	private JTextField textField;
+        static JTable highscore;
+        private String[][] dataHigh;
         public static JButton bt1, bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9;
         public static  JPanel memory;
-        final private JPanel right;
-        final private JPanel firstRow, secRow, thirdRow;
-        final private JPanel botBut, topBut, midBut;
+        private JPanel right;
+        private JPanel firstRow, secRow, thirdRow;
+        private JPanel botBut, topBut, midBut;
 
 	/**
 	 * Launch the application.
 	 */
-
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GUI_memory frame = new GUI_memory();
+					frame.setVisible(true);
+                                        frame.add(contentPane);
+                                        frame.pack();
+                                        frame.setResizable(true);
+                                        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
 	/**
 	 * Create the frame.
 	 */
-	public GUI_memory(int size) {
-                Project.zeit1=System.currentTimeMillis(); 
-                Project.myStoppuhr(true);
+	public GUI_memory() {
+//                zeit1=System.currentTimeMillis(); 
+//                myStoppuhr(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -90,14 +104,14 @@ public class GUI_memory extends JFrame {
                 midBut = new JPanel();
                 String[] columnNames={"User","Time"};
                 dataHigh = new String[4][2];
-                dataHigh[0][0]= "da";
+                dataHigh[0][0]= "havefun";
                 highscore = new JTable(dataHigh,columnNames);
                 highscore.setVisible(true);
                 midBut.add(highscore,BorderLayout.CENTER);
 		
 		
-		Project.Zeit.setBounds(353, 12, 51, 19);
-		midBut.add(Project.Zeit,BorderLayout.SOUTH);
+//		Zeit.setBounds(353, 12, 51, 19);
+//		midBut.add(Zeit,BorderLayout.SOUTH);
 		
 		
 		JLabel lblLinguisticMemory = new JLabel("memory");
@@ -108,14 +122,13 @@ public class GUI_memory extends JFrame {
                 botBut = new JPanel();
                 botBut.setLayout(new BorderLayout());
 		JButton btnExit = new JButton("Exit");
-                btnExit.addActionListener(new exitButtonHandler());
 		btnExit.setBounds(358, 236, 79, 25);
 		botBut.add(btnExit,BorderLayout.EAST);
 		
                 topBut = new JPanel();
                 topBut.setLayout(new BorderLayout());
 		textField = new JTextField();
-		textField.setText(Integer.toString(Project.solvedPair));
+		textField.setText(" 0");
 		textField.setBounds(358, 125, 46, 25);
                 textField.setEditable(false);
 		topBut.add(textField,BorderLayout.EAST);
@@ -126,7 +139,6 @@ public class GUI_memory extends JFrame {
 		topBut.add(lblSolvedPairs,BorderLayout.WEST);
 		
 		JButton btnReset = new JButton(" Reset");
-                btnReset.addActionListener(new resetButtonHandler());
                 btnReset.setLayout(new BorderLayout());
                 btnReset.setBounds(330, 109, 98, 15);
                 botBut.add(btnReset,BorderLayout.WEST);
@@ -137,27 +149,4 @@ public class GUI_memory extends JFrame {
                 
                 contentPane.add(right);
 	}
-
-	   
-            
-        private class resetButtonHandler implements ActionListener  {
-        @Override
-	public void actionPerformed(ActionEvent e)  {
-
-            Project.solvedPair=0;
-            Project.zeit1=System.currentTimeMillis(); 
-            Project.myStoppuhr(true);
-            textField.setText(Integer.toString(Project.solvedPair));
-
-            
-		}
-	}
-        
-        private static class exitButtonHandler implements ActionListener  {
-        @Override
-	public void actionPerformed(ActionEvent e)  {
-            
-                System.exit(0);
-        }
-        }
 }
